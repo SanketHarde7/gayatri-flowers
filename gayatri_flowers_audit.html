@@ -1,0 +1,276 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.wrap{padding:1.5rem 0}
+.tabs{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap}
+.tab{padding:7px 16px;border-radius:999px;border:0.5px solid var(--color-border-secondary);font-size:13px;cursor:pointer;background:transparent;color:var(--color-text-secondary);transition:all .2s}
+.tab.active{background:var(--color-text-primary);color:var(--color-background-primary);border-color:transparent}
+.panel{display:none}.panel.active{display:block}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:12px}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.badge-fix{background:var(--color-background-success);color:var(--color-text-success)}
+.badge-copy{background:var(--color-background-info);color:var(--color-text-info)}
+.badge-warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.diff-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.diff-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.diff-label.before{color:var(--color-text-danger)}
+.diff-label.after{color:var(--color-text-success)}
+.diff-text{font-size:12.5px;color:var(--color-text-primary);line-height:1.6}
+.code{font-family:var(--font-mono);font-size:11.5px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;margin-top:8px;color:var(--color-text-primary);line-height:1.7;overflow-x:auto;white-space:pre}
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);margin:1.5rem 0 .75rem}
+.score-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.score-bar{flex:1;height:6px;background:var(--color-border-tertiary);border-radius:99px;overflow:hidden}
+.score-fill{height:100%;border-radius:99px;transition:width .6s cubic-bezier(.16,1,.3,1)}
+.score-label{font-size:12px;color:var(--color-text-secondary);min-width:110px}
+.score-val{font-size:12px;font-weight:500;min-width:28px;text-align:right;color:var(--color-text-primary)}
+@media(max-width:500px){.diff{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab active" onclick="show('typo')">Typography</button>
+    <button class="tab" onclick="show('copy')">Copywriting</button>
+    <button class="tab" onclick="show('prod')">Production Gaps</button>
+    <button class="tab" onclick="show('score')">Score</button>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="panel active" id="typo">
+    <div class="section-label">CSS fixes — add these to style.css</div>
+
+    <div class="card">
+      <span class="badge badge-fix">High impact</span>
+      <div class="title">Heading polish — balance, kerning, optical sizing</div>
+      <div class="desc">Large headings need text-wrap:balance to prevent single orphan words on last line. font-optical-sizing and font-kerning sharpen Cormorant at display sizes.</div>
+      <div class="code">h1, h2, h3 {
+  text-wrap: balance;
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">High impact</span>
+      <div class="title">Body copy is too small</div>
+      <div class="desc">Base font is 0.88–0.9rem (~14px). Anything below 15px on body text reads as a mobile afterthought on desktop. Bump to 0.96rem minimum.</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">.hero-description, .flower-content p { font-size: 0.88rem }</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">.hero-description, .flower-content p { font-size: 0.96rem }</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Medium</span>
+      <div class="title">Counter numbers need tabular figures</div>
+      <div class="desc">When your JS animates 0 → 10,000 the digits jump width because Cormorant uses proportional figures by default. Add font-variant-numeric to the stat numbers.</div>
+      <div class="code">.stat-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Medium</span>
+      <div class="title">Section tags / eyebrow text too tight</div>
+      <div class="desc">.section-tag and .eyebrow use font-size 0.65rem. That's 10.4px — below the accessibility comfort threshold. Use 0.72rem minimum and slightly reduce letter-spacing from 0.26em to 0.20em.</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">font-size: 0.65rem;<br>letter-spacing: 0.26em</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">font-size: 0.72rem;<br>letter-spacing: 0.20em</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Low</span>
+      <div class="title">Missing italic font pairing for DM Sans</div>
+      <div class="desc">Cormorant italics are loaded but DM Sans italic is not in the Google Fonts import. Add ital axis or the browser will synthesise italic — looks bad.</div>
+      <div class="code">&lt;!-- Replace current Google Fonts link --&gt;
+family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400</div>
+    </div>
+  </div>
+
+  <!-- COPYWRITING -->
+  <div class="panel" id="copy">
+    <div class="section-label">Before → After rewrites</div>
+
+    <div class="card">
+      <span class="badge badge-copy">Hero headline</span>
+      <div class="title">Generic poetic fluff — no value prop</div>
+      <div class="desc">"Where Every Petal Tells a Story" could be any florist on the planet. A bulk wholesale buyer needs to immediately feel they're in the right place.</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Where Every<br>Petal Tells<br>a Story.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Maharashtra's<br>Freshest <em>Bulk</em><br>Flowers.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-copy">Hero description</span>
+      <div class="title">Passive and vague — no urgency or specifics</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Marigolds, roses, and seasonal blooms — grown with care, delivered fresh for events, decorators, and wholesalers.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Farm-to-delivery in Shirdi since 2005. Bulk zendu marigold, premium gulab, and seasonal flowers for events, decorators, and Blinkit — minimum 10 kg, same-day dispatch.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-copy">About heading</span>
+      <div class="title">Awkward simile — reads clunky out loud</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Trusted like an old supplier. Premium like a luxury brand.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Roots in farming.<br>Standards in<br><em>luxury.</em></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-copy">Stats heading</span>
+      <div class="title">"Numbers that speak for themselves" — overused cliché</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Numbers that<br>speak for themselves.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Twenty years.<br>One <em>commitment.</em></div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-copy">Contact CTA</span>
+      <div class="title">Weak close — no benefit or urgency</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Let's discuss your flower requirement.<br><br>We respond within hours.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Ready to quote your next order.<br><br>Send us your requirement on WhatsApp — most enquiries get a rate within 2 hours, 7 days a week.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-copy">Flower cards</span>
+      <div class="title">Descriptions don't sell — no benefits, quantities, or use cases</div>
+      <div class="diff">
+        <div class="diff-box"><div class="diff-label before">Now</div><div class="diff-text">Bright festive flowers cultivated for large-scale supply, decoration, and celebrations across Maharashtra.</div></div>
+        <div class="diff-box"><div class="diff-label after">Fix</div><div class="diff-text">Classic festival marigold in vibrant orange-yellow. Minimum 10 kg, harvested same morning. Popular for mandap decoration, temple supply, and Blinkit.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-warn">Missing entirely</span>
+      <div class="title">No trust signals or social proof section</div>
+      <div class="desc">You mention "500+ happy customers" in the stats but nowhere do you show any of them. Even 2–3 short testimonials (event decorator, mandap manager, Blinkit contact) would significantly increase enquiry conversion. Consider adding a simple quote section between Gallery and Contact.</div>
+    </div>
+  </div>
+
+  <!-- PRODUCTION GAPS -->
+  <div class="panel" id="prod">
+    <div class="section-label">Things missing before going live</div>
+
+    <div class="card">
+      <span class="badge badge-warn">Critical</span>
+      <div class="title">Placeholder phone number in WhatsApp link</div>
+      <div class="desc">href="https://wa.me/919999999999" — this needs a real number before launch or every CTA click goes nowhere.</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-warn">Critical</span>
+      <div class="title">No favicon or apple-touch-icon</div>
+      <div class="desc">Browser tab shows default globe icon. Add to &lt;head&gt;:</div>
+      <div class="code">&lt;link rel="icon" href="/assets/favicon.ico" sizes="any"&gt;
+&lt;link rel="icon" href="/assets/icon.svg" type="image/svg+xml"&gt;
+&lt;link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"&gt;</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-warn">High</span>
+      <div class="title">Hero image has no width/height attributes</div>
+      <div class="desc">Without explicit width and height, the browser can't reserve layout space while loading — causes a layout shift (bad CLS score). Add width="1920" height="1080" to the hero &lt;img&gt;. Do the same for all images.</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-warn">High</span>
+      <div class="title">Missing &lt;link rel="preload"&gt; for hero image</div>
+      <div class="desc">Hero has fetchpriority="high" but no preload hint in &lt;head&gt;. Adding one reduces LCP by ~200–400ms.</div>
+      <div class="code">&lt;link rel="preload" as="image" href="assets/hero-bg.jpg" fetchpriority="high"&gt;</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-warn">High</span>
+      <div class="title">No skip-to-content link for keyboard/screen reader users</div>
+      <div class="desc">Add as the very first element inside &lt;body&gt;:</div>
+      <div class="code">&lt;a href="#about" class="skip-link"&gt;Skip to content&lt;/a&gt;
+
+/* CSS */
+.skip-link {
+  position: absolute; top: -999px; left: -999px;
+}
+.skip-link:focus {
+  top: 8px; left: 8px; z-index: 9999;
+  padding: 8px 16px; background: var(--gold);
+  color: #2a1705; border-radius: 8px;
+}</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Medium</span>
+      <div class="title">All images should use modern formats (WebP/AVIF)</div>
+      <div class="desc">Use &lt;picture&gt; with AVIF + WebP fallbacks for hero and gallery images. Typical saving: 40–65% smaller files, faster load on mobile.</div>
+      <div class="code">&lt;picture&gt;
+  &lt;source srcset="assets/hero-bg.avif" type="image/avif"&gt;
+  &lt;source srcset="assets/hero-bg.webp" type="image/webp"&gt;
+  &lt;img src="assets/hero-bg.jpg" class="hero-image" alt="..." /&gt;
+&lt;/picture&gt;</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Medium</span>
+      <div class="title">Footer year is hardcoded as 2025</div>
+      <div class="desc">Update to auto-update:</div>
+      <div class="code">// In script.js
+document.querySelector('.footer-copy').innerHTML =
+  `&copy; ${new Date().getFullYear()} Gayatri Flowers, Shirdi. All rights reserved.`;</div>
+    </div>
+
+    <div class="card">
+      <span class="badge badge-fix">Low</span>
+      <div class="title">No robots.txt or sitemap.xml</div>
+      <div class="desc">The HTML has thorough SEO meta tags — good. But without a sitemap.xml submitted to Google Search Console, and a robots.txt that allows crawling, indexing will be slower. Create both and submit sitemap via GSC.</div>
+    </div>
+  </div>
+
+  <!-- SCORE -->
+  <div class="panel" id="score">
+    <div class="section-label">Current audit scores</div>
+    <div class="card">
+      <div id="scores"></div>
+    </div>
+    <div class="desc" style="margin-top:12px;font-size:12px;color:var(--color-text-tertiary)">Scores are qualitative estimates based on code review, not Lighthouse. Apply all fixes above to reach production quality.</div>
+  </div>
+</div>
+<script>
+function show(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+const scores=[
+  {label:'Typography quality',val:62,color:'#EF9F27'},
+  {label:'Copywriting strength',val:48,color:'#E24B4A'},
+  {label:'SEO & meta tags',val:82,color:'#1D9E75'},
+  {label:'Accessibility',val:55,color:'#EF9F27'},
+  {label:'Performance readiness',val:60,color:'#EF9F27'},
+  {label:'JavaScript quality',val:90,color:'#1D9E75'},
+  {label:'Visual design',val:88,color:'#1D9E75'},
+];
+const cont=document.getElementById('scores');
+scores.forEach(s=>{
+  cont.innerHTML+=`<div class="score-row">
+    <span class="score-label">${s.label}</span>
+    <div class="score-bar"><div class="score-fill" style="width:0%;background:${s.color}" data-w="${s.val}"></div></div>
+    <span class="score-val">${s.val}</span>
+  </div>`;
+});
+setTimeout(()=>{
+  document.querySelectorAll('.score-fill').forEach(el=>{
+    el.style.width=el.dataset.w+'%';
+  });
+},100);
+</script>
