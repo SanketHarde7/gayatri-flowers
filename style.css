@@ -1311,6 +1311,7 @@ nav a:hover { color: var(--gold); }
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--text-soft);
+  display: none;
 }
 
 @keyframes mediaScroll {
