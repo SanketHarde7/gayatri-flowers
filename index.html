@@ -82,21 +82,12 @@
 
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── PRICE CUT ── */
-    .price-cut-wrap { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
-    .price-old { text-decoration:line-through; color:#a87f6b; font-size:0.75rem; letter-spacing:0.04em; }
-    .price-new { color:var(--gold-light, #fcd68a); font-weight:600; }
-
     /* ── UNAVAILABLE CARD ── */
     .flower-card.unavailable { opacity:.48; pointer-events:none; filter:grayscale(0.55); }
     .flower-card.unavailable .flower-view-btn { display:none; }
     .fmeta.avail-unavailable {
       background:rgba(100,100,100,.1); border-color:rgba(100,100,100,.2);
       color:#888;
-    }
-    .flower-card.unavailable .flower-price-pill {
-      background:rgba(0,0,0,.55); color:rgba(255,255,255,.5);
-      border-color:rgba(255,255,255,.08);
     }
     .unavail-overlay {
       position:absolute; inset:0;
@@ -589,7 +580,7 @@
     <div class="flowers-header">
       <p class="section-tag reveal">Our Flowers</p>
       <h2 id="flowers-heading" class="reveal">Select Best<br/><em>Flowers</em></h2>
-      <p class="flowers-subhead reveal">Click any available flower to see varieties, pricing &amp; enquire directly.</p>
+      <p class="flowers-subhead reveal">Click any available flower to see varieties and enquire directly.</p>
     </div>
 
     <div class="flowers-grid">
@@ -599,12 +590,6 @@
         <div class="flower-img-wrap">
           <img src="assets/marigold.webp" alt="Fresh Zendu Marigold flowers grown at Gayatri Flowers Suppliers farm Shirdi" loading="lazy" width="1200" height="900" />
           <div class="flower-tag">Bulk Available</div>
-          <div class="flower-price-pill">
-            <div class="price-cut-wrap">
-              <span class="price-old">₹170–230/kg</span>
-              <span class="price-new">₹100–150/kg</span>
-            </div>
-          </div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
@@ -626,12 +611,6 @@
         <div class="flower-img-wrap">
           <img src="assets/rose.webp" alt="Premium Gulab roses from Gayatri Flowers Suppliers, Shirdi" loading="lazy" width="1200" height="900" />
           <div class="flower-tag">Premium Grade</div>
-          <div class="flower-price-pill">
-            <div class="price-cut-wrap">
-              <span class="price-old">₹170–230/kg</span>
-              <span class="price-new">₹100–150/kg</span>
-            </div>
-          </div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
@@ -653,12 +632,6 @@
         <div class="flower-img-wrap">
           <img src="assets/gallery-1.webp" alt="White and yellow Shevanti chrysanthemum from Gayatri Flowers Suppliers Shirdi" loading="lazy" width="1200" height="900" />
           <div class="flower-tag">Seasonal</div>
-          <div class="flower-price-pill">
-            <div class="price-cut-wrap">
-              <span class="price-old">₹170–230/kg</span>
-              <span class="price-new">₹100–150/kg</span>
-            </div>
-          </div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
@@ -681,7 +654,6 @@
           <img src="assets/mogra.webp" alt="Mogra jasmine — currently unavailable" loading="lazy" width="1200" height="900" />
           <div class="unavail-overlay"><span class="unavail-badge">Not Available</span></div>
           <div class="flower-tag">Coming Soon</div>
-          <div class="flower-price-pill">Unavailable</div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
@@ -701,11 +673,10 @@
           <img src="assets/gaillardia.webp" alt="Gaillardia — currently unavailable" loading="lazy" width="1200" height="900" />
           <div class="unavail-overlay"><span class="unavail-badge">Not Available</span></div>
           <div class="flower-tag">Coming Soon</div>
-          <div class="flower-price-pill">Unavailable</div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
-            <h3>Gaillardia</h3>
+            <h3> Blanket flower</h3>
             <span class="flower-name-hi">कवठी</span>
           </div>
           <p>Vibrant bi-colored flowers — currently unavailable. Check back soon.</p>
@@ -721,7 +692,6 @@
           <img src="assets/lotus.webp" alt="Kamal Lotus — currently unavailable" loading="lazy" width="1200" height="900" />
           <div class="unavail-overlay"><span class="unavail-badge">Not Available</span></div>
           <div class="flower-tag">Coming Soon</div>
-          <div class="flower-price-pill">Unavailable</div>
         </div>
         <div class="flower-content">
           <div class="flower-title-row">
@@ -759,7 +729,6 @@
           <span class="fm-tag" id="fm-tag"></span>
           <span class="fm-avail" id="fm-avail"></span>
         </div>
-        <div class="fm-price-float" id="fm-price-float"></div>
       </div>
       <div class="fm-body">
         <div class="fm-header">
@@ -774,14 +743,6 @@
           <div class="fm-pills" id="fm-varieties"></div>
         </div>
         <div class="fm-info-grid">
-          <div class="fm-info-item">
-            <div class="fm-info-label">
-              <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1L9.96 5.96L15.5 6.18L11.5 9.72L12.94 15.09L8 12.1L3.06 15.09L4.5 9.72L.5 6.18L6.04 5.96Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
-              Our Price
-            </div>
-            <div id="fm-price-display" style="margin-top:4px"></div>
-            <div class="fm-info-note" id="fm-price-note"></div>
-          </div>
           <div class="fm-info-item">
             <div class="fm-info-label">
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M5 1v4M11 1v4M2 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
@@ -818,7 +779,6 @@
             Call Now
           </a>
         </div>
-        <p class="fm-bulk-note">* Bulk rates and special pricing available for orders above 50 kg. Contact us for custom quote.</p>
       </div>
     </div>
   </div>
@@ -940,18 +900,18 @@
         <figure class="media-item"><img src="assets/gallery-2.webp" alt="Sorting and grading" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Sorting &amp; Grading</figcaption></figure>
         <figure class="media-item"><img src="assets/gallery-3.webp" alt="Rose fields" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Rose Fields</figcaption></figure>
         <figure class="media-item"><img src="assets/gallery-4.webp" alt="Bulk packing" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Bulk Packing</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-5.webp" alt="Festive supply" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Festive Supply</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-6.webp" alt="Farm care" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Farm Care</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-7.webp" alt="Garland making" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Garland Making</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-8.webp" alt="Delivery prep" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Delivery Prep</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-9.webp" alt="Farm overview" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Farm Overview</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-10.webp" alt="Seasonal stock" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Seasonal Stock</figcaption></figure>
-        <!-- Duplicate for seamless scroll -->
+        <figure class="media-item"><img src="assets/mogra.webp" alt="Festive supply" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Festive Supply</figcaption></figure>
+        <figure class="media-item"><img src="assets/merifarm.webp" alt="Farm care" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Farm Care</figcaption></figure>
+        <figure class="media-item"><img src="assets/farm.webp" alt="Garland making" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Garland Making</figcaption></figure>
+        <figure class="media-item"><img src="assets/lotus.webp" alt="Delivery prep" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Delivery Prep</figcaption></figure>
+        <figure class="media-item"><img src="assets/gallery-2.webp" alt="Farm overview" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Farm Overview</figcaption></figure>
+        <figure class="media-item"><img src="assets/gallery-3.webp" alt="Seasonal stock" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Seasonal Stock</figcaption></figure>
+      
         <figure class="media-item"><img src="assets/gallery-1.webp" alt="Morning harvest" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Morning Harvest</figcaption></figure>
         <figure class="media-item"><img src="assets/gallery-2.webp" alt="Sorting and grading" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Sorting &amp; Grading</figcaption></figure>
         <figure class="media-item"><img src="assets/gallery-3.webp" alt="Rose fields" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Rose Fields</figcaption></figure>
         <figure class="media-item"><img src="assets/gallery-4.webp" alt="Bulk packing" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Bulk Packing</figcaption></figure>
-        <figure class="media-item"><img src="assets/gallery-5.webp" alt="Festive supply" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Festive Supply</figcaption></figure>
+        <figure class="media-item"><img src="assets/gaillardia.webp" alt="Festive supply" loading="lazy" width="1200" height="800" /><figcaption class="media-caption">Festive Supply</figcaption></figure>
       </div>
     </div>
   </section>
@@ -1008,7 +968,7 @@
         <p class="founder-bio reveal">
           Today, Gayatri Flowers is a trademark-registered supplier serving mandap decorators, Blinkit,
           event planners, and wholesale buyers across Maharashtra. His philosophy is simple:
-          <em>farm honest, supply fresh, price fair.</em>
+          <em>farm honest, supply fresh, service fair.</em>
         </p>
 
         <div class="founder-tags reveal">
@@ -1154,7 +1114,7 @@
           <div class="review-stars" aria-label="5 stars">★★★★★</div>
           <span class="review-date">Oct 2024</span>
         </div>
-        <blockquote class="review-text">Best price in all of Shirdi for bulk marigold. Competitors charge 40-50% more. Freshness is top class. Our Blinkit orders never had a complaint from customers.</blockquote>
+        <blockquote class="review-text">Best value in all of Shirdi for bulk marigold. Freshness is top class. Our Blinkit orders never had a complaint from customers.</blockquote>
         <figcaption>
           <div class="review-author">Vishal Thorat</div>
           <div class="review-role">Blinkit Supplier Partner, Shirdi</div>
@@ -1284,7 +1244,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp Us
         </a>
-        <a href="mailto:hello@gayatriflowers.in" class="secondary-btn">Email Us</a>
+        <a href="mailto:swamichaudhari252@gmail.com" class="secondary-btn">Email Us</a>
       </div>
       <address class="contact-address reveal">
         <span>Shirdi, Maharashtra</span>
@@ -1314,10 +1274,10 @@
 
   <a
     class="wa-float"
-    href="https://wa.me/919325284221?text=Hello%2C%20I%20want%20bulk%20flower%20pricing%20and%20availability."
+    href="https://wa.me/919325284221?text=Hello%2C%20I%20want%20bulk%20flower%20availability%20and%20order%20details."
     target="_blank"
     rel="noopener"
-    aria-label="WhatsApp us for bulk flower pricing and availability"
+    aria-label="WhatsApp us for bulk flower availability and order details"
   >
     <span class="wa-float-icon" aria-hidden="true">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

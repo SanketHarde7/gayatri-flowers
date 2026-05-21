@@ -1,4 +1,81 @@
+# =========================================
+# GAYATRI FLOWERS SUPPLIERS™
+# robots.txt
+# =========================================
+
+# --- OpenAI ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Anthropic ---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# --- Google AI ---
+User-agent: Google-Extended
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+# --- Meta AI ---
+User-agent: FacebookBot
+Allow: /
+
+# --- Amazon AI ---
+User-agent: Amazonbot
+Allow: /
+
+# --- ByteDance / TikTok AI ---
+User-agent: Bytespider
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
+Allow: /
+
+# --- Common Search Engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# --- SEO Crawlers ---
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+# --- Default Rule ---
 User-agent: *
 Allow: /
+
+# =========================================
+# Sitemap
+# =========================================
 
 Sitemap: https://gayatriflowers.in/sitemap.xml

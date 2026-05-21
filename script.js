@@ -11,94 +11,79 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 /* ─── FLOWER DATA ─── */
 const FLOWER_DATA = {
   marigold: {
-    name: 'Zendu Marigold',
-    nameHi: 'ज़ेंदू / गेंदा',
+    name: 'Marigold',
+    nameHi: 'झेंडू/ गेंदा',
     tag: 'Bulk Available',
     availability: 'In Stock',
     availClass: 'avail-green',
-    img: 'assets/marigold.jpg',
-    price: '₹40 – ₹80 / kg',
-    priceNote: 'Bulk rates negotiable for 50 kg+ orders',
-    priceFloat: '₹40–80 / kg',
+    img: 'assets/marigold.webp',
     minOrder: '10 kg',
     season: 'Year-round (peak Oct – Feb)',
     freshness: 'Harvested same morning, dispatched within 2 hrs of cutting',
     desc: "Maharashtra's most-demanded festival flower. Harvested before sunrise for maximum vase life. Supplied fresh to temples, mandaps, and Blinkit daily.",
     varieties: ['Deep Orange', 'Butter Yellow', 'Mixed Garland Grade', 'Loose Bulk'],
     bestFor: ['Mandap Decoration', 'Temple Supply', 'Blinkit', 'Garland Making', 'Festival Events'],
-    whatsappMsg: 'Hello, I want to enquire about Zendu Marigold (bulk pricing and availability).'
+    whatsappMsg: 'Hello, I want to enquire about Zendu Marigold (bulk availability and order details).'
   },
   rose: {
-    name: 'Premium Gulab',
+    name: 'Premium Rose',
     nameHi: 'गुलाब',
     tag: 'Premium Grade',
     availability: 'In Stock',
     availClass: 'avail-green',
-    img: 'assets/rose.jpg',
-    price: '₹80 – ₹150 / kg',
-    priceNote: 'Grade A roses available at premium pricing',
-    priceFloat: '₹80–150 / kg',
-    minOrder: '5 kg',
+    img: 'assets/rose.webp',
+    minOrder: '10 kg',
     season: 'Year-round (peak Nov – Mar)',
     freshness: 'Harvested before sunrise, cold-stored until dispatch',
     desc: 'Dense-petalled roses with natural fragrance, grown without aggressive pesticides. Popular with wedding planners and mandap decorators across Maharashtra.',
     varieties: ['Deep Red', 'Blush Pink', 'Cream White', 'Mixed Grade'],
     bestFor: ['Wedding Decoration', 'Garland Making', 'Premium Decor', 'Puja'],
-    whatsappMsg: 'Hello, I want to enquire about Premium Gulab Rose (bulk pricing and availability).'
+    whatsappMsg: 'Hello, I want to enquire about Premium Gulab Rose (bulk availability and order details).'
   },
   shevanti: {
-    name: 'Shevanti',
+    name: 'Chrysanthemum',
     nameHi: 'शेवंती / गुलदाउदी',
     tag: 'Seasonal',
     availability: 'Seasonal',
     availClass: 'avail-amber',
-    img: 'assets/shevanti.jpg',
-    price: '₹60 – ₹100 / kg',
-    priceNote: 'Seasonal availability — order early during festival peak',
-    priceFloat: '₹60–100 / kg',
+    img: 'assets/shevanti.webp',
     minOrder: '10 kg',
     season: 'Sep – Feb (peak Oct – Nov)',
     freshness: 'Freshest lot harvested every morning at 5 AM',
     desc: 'White and yellow chrysanthemum with long-lasting freshness. A festival staple during Diwali and Navratri. Available in bulk for decoration and garlands.',
     varieties: ['Pure White', 'Bright Yellow', 'Mixed Grade'],
     bestFor: ['Diwali Decoration', 'Navratri Garlands', 'Mandap', 'Religious Ceremonies'],
-    whatsappMsg: 'Hello, I want to enquire about Shevanti Chrysanthemum (seasonal availability and pricing).'
+    whatsappMsg: 'Hello, I want to enquire about Shevanti Chrysanthemum (seasonal availability and order details).'
   },
   mogra: {
-    name: 'Mogra',
+    name: 'Arabian Jasmine',
     nameHi: 'मोगरा / मल्लिका',
     tag: 'High Value',
     availability: 'Seasonal',
     availClass: 'avail-amber',
-    img: 'assets/mogra.jpg',
-    price: '₹200 – ₹400 / kg',
-    priceNote: "Price fluctuates with season — contact for today's rate",
-    priceFloat: '₹200–400 / kg',
+    img: 'assets/mogra.webp',
     minOrder: '2 kg',
     season: 'Mar – Aug (peak May – Jul)',
     freshness: 'Hand-picked in early morning, dispatched same day',
     desc: 'Premium jasmine known for its intense fragrance. Used in garlands, hair flowers, and religious offerings. High demand during summer and wedding season.',
     varieties: ['Double Petal', 'Single Petal', 'Garland Grade'],
     bestFor: ['Bridal Garlands', 'Hair Flowers', 'Pooja', 'Attar Production'],
-    whatsappMsg: 'Hello, I want to enquire about Mogra Jasmine (pricing and today\'s availability).'
+    whatsappMsg: 'Hello, I want to enquire about Mogra Jasmine (today\'s availability and order details).'
   },
   gaillardia: {
-    name: 'Gaillardia',
+    name: ' Blanket flower',
     nameHi: 'गैलार्डिया / कवठी',
     tag: 'Budget Bulk',
     availability: 'In Stock',
     availClass: 'avail-green',
-    img: 'assets/gaillardia.jpg',
-    price: '₹30 – ₹60 / kg',
-    priceNote: 'Most affordable bulk option — ideal for large events',
-    priceFloat: '₹30–60 / kg',
+    img: 'assets/gaillardia.webp',
     minOrder: '20 kg',
     season: 'Year-round',
     freshness: 'Bulk harvested in morning, available for pickup by 7 AM',
-    desc: 'Vibrant bi-colored flowers perfect for large-scale decoration at budget-friendly prices. Popular with mandap contractors and roadside decorators across the Nashik–Pune belt.',
+    desc: 'Vibrant bi-colored flowers perfect for large-scale decoration at a budget-friendly option. Popular with mandap contractors and roadside decorators across the Nashik–Pune belt.',
     varieties: ['Orange-Red Bicolor', 'Yellow Tipped', 'Deep Red'],
     bestFor: ['Mass Decoration', 'Event Flooring', 'Budget Mandap', 'Veni / Garland'],
-    whatsappMsg: 'Hello, I want to enquire about Gaillardia (bulk pricing and availability).'
+    whatsappMsg: 'Hello, I want to enquire about Gaillardia (bulk availability and order details).'
   },
   lotus: {
     name: 'Lotus',
@@ -106,17 +91,14 @@ const FLOWER_DATA = {
     tag: 'Temple Grade',
     availability: 'Limited',
     availClass: 'avail-red',
-    img: 'assets/lotus.jpg',
-    price: '₹150 – ₹300 / dozen',
-    priceNote: 'Priced per dozen — minimum 5 dozen per order',
-    priceFloat: '₹150–300 / dz',
+    img: 'assets/lotus.webp',
     minOrder: '5 dozen',
     season: 'Jun – Nov',
     freshness: 'Harvested fresh from farm ponds each morning',
     desc: 'Sacred lotus grown in natural water bodies near the farm. Supplied fresh for temple offerings, religious ceremonies, and premium event decoration.',
     varieties: ['Pink Lotus', 'White Lotus', 'Bud Grade', 'Open Bloom'],
     bestFor: ['Temple Offerings', 'Navratri', 'Premium Decor', 'Shradh Ceremonies'],
-    whatsappMsg: 'Hello, I want to enquire aboutLotus (availability and pricing).'
+    whatsappMsg: 'Hello, I want to enquire about Lotus (availability and order details).'
   }
 };
 
@@ -520,9 +502,6 @@ const CALL_NUMBER = '+919325284221';
     el('fm-name').textContent     = d.name;
     el('fm-name-hi').textContent  = d.nameHi;
     el('fm-desc').textContent     = d.desc;
-    el('fm-price-display').textContent = d.price;
-    el('fm-price-note').textContent = d.priceNote;
-    el('fm-price-float').textContent = d.priceFloat;
     el('fm-min').textContent      = d.minOrder;
     el('fm-season').textContent   = d.season;
     el('fm-freshness').textContent = d.freshness;
