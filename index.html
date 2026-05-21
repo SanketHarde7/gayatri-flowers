@@ -31,7 +31,14 @@
   <meta name="geo.position" content="19.7646;74.4765" />
   <meta name="ICBM" content="19.7646, 74.4765" />
 
-  <link rel="preload" as="image" href="assets/hero-bg.webp" fetchpriority="high" />
+  <link
+    rel="preload"
+    as="image"
+    href="assets/hero-bg.webp"
+    imagesrcset="assets/hero-mobile.webp 768w, assets/hero-bg.webp 1920w"
+    imagesizes="(max-width: 768px) 100vw, 100vw"
+    fetchpriority="high"
+  />
   <link rel="icon" href="/assets/favicon.ico" sizes="any" />
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -424,9 +431,19 @@
   <section class="hero" aria-label="Hero section">
     <div class="hero-overlay" aria-hidden="true"></div>
     <picture>
-      <img src="assets/hero-bg.webp" class="hero-image"
+      <source
+        srcset="assets/hero-mobile.webp"
+        media="(max-width: 768px)"
+      />
+      <img
+        src="assets/hero-bg.webp"
+        class="hero-image"
         alt="Sunrise over Gayatri Flowers Suppliers marigold farm in Shirdi"
-        fetchpriority="high" loading="eager" width="1920" height="1080" />
+        fetchpriority="high"
+        loading="eager"
+        width="1920"
+        height="1080"
+      />
     </picture>
 
     <div class="hero-content">
