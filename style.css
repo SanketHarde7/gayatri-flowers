@@ -282,7 +282,7 @@ nav a:hover { color: var(--gold); }
 
 .hero h1 {
   font-family: var(--font-serif);
-  font-size: clamp(3.6rem, 10vw, 7.5rem);
+  font-size: clamp(3.0rem, 8.0vw, 6.0rem);
   line-height: 0.92;
   font-weight: 600;
   letter-spacing: -0.02em;
