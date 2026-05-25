@@ -78,4 +78,4 @@ Allow: /
 # Sitemap
 # =========================================
 
-Sitemap: https://https://www.gayatriflowerssuppliers.in//sitemap.xml
+Sitemap: https://www.gayatriflowerssuppliers.in//sitemap.xml
