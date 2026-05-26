@@ -3,9 +3,30 @@
 
   <url>
     <loc>https://www.gayatriflowerssuppliers.in/</loc>
-    <lastmod>2026-05-21</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gayatriflowerssuppliers.in/bulk-flower-supplier-nashik.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gayatriflowerssuppliers.in/bulk-flower-supplier-pune.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.gayatriflowerssuppliers.in/bulk-flower-supplier-ahilyanagar.html</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
 </urlset>

@@ -125,12 +125,13 @@
       "Zendu phool wholesale Maharashtra"
     ],
     "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "10"
-    },
+       "@type": "AggregateRating",
+       "ratingValue": "4.9",
+       "bestRating": "5",
+       "worstRating": "1",
+       "ratingCount": "47",
+       "reviewCount": "47"
+},
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Wholesale Bulk Flowers",
@@ -470,11 +471,79 @@
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
+      <button class="locations-btn" id="locationsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="locationPanel">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Locations
+      </button>
     </nav>
     <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span>
     </div>
   </header>
+
+  <!-- ═══════════════════════════════════════════════
+       LOCATION PANEL — slides in from right
+       Add new cities here as business expands
+  ═══════════════════════════════════════════════ -->
+  <div class="location-panel-overlay" id="locOverlay" aria-hidden="true"></div>
+  <aside class="location-panel" id="locationPanel" role="dialog" aria-modal="true" aria-label="Our delivery locations">
+    <div class="lp-header">
+      <div>
+        <p class="lp-eyebrow">We Deliver To</p>
+        <h2 class="lp-title">Our Locations</h2>
+      </div>
+      <button class="lp-close" id="lpClose" aria-label="Close locations panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <p class="lp-intro">Bulk flowers dispatched from our Shirdi farm directly to your city — no mandi, no middlemen.</p>
+
+    <div class="lp-cities">
+
+      <a href="bulk-flower-supplier-nashik.html" class="lp-city-card">
+        <div class="lp-city-icon" aria-hidden="true">🌼</div>
+        <div class="lp-city-info">
+          <span class="lp-city-name">Nashik</span>
+          <span class="lp-city-meta">~90 km · 3–4 hrs delivery</span>
+          <span class="lp-city-tags">Zendu · Rose · Shevanti · Mogra</span>
+        </div>
+        <svg class="lp-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="bulk-flower-supplier-pune.html" class="lp-city-card">
+        <div class="lp-city-icon" aria-hidden="true">🌹</div>
+        <div class="lp-city-info">
+          <span class="lp-city-name">Pune</span>
+          <span class="lp-city-meta">~200 km · 4–6 hrs delivery</span>
+          <span class="lp-city-tags">Zendu · Rose · Shevanti · Mogra</span>
+        </div>
+        <svg class="lp-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <a href="bulk-flower-supplier-ahilyanagar.html" class="lp-city-card">
+        <div class="lp-city-icon" aria-hidden="true">🌸</div>
+        <div class="lp-city-info">
+          <span class="lp-city-name">Ahilyanagar</span>
+          <span class="lp-city-meta">~60 km · 1–2 hrs delivery</span>
+          <span class="lp-city-tags">Zendu · Rose · Shevanti · Mogra</span>
+        </div>
+        <svg class="lp-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <!-- ── ADD NEW CITIES BELOW THIS LINE ── -->
+      <!-- Copy one lp-city-card block and update href, icon, name, distance, tags -->
+
+    </div>
+
+    <div class="lp-footer">
+      <p class="lp-footer-text">Don't see your city?</p>
+      <a href="https://wa.me/919325284221?text=Hello%2C%20I%20need%20bulk%20flowers%20delivered%20to%20my%20city.%20Please%20confirm%20if%20you%20deliver%20here." class="lp-wa-btn" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp Us — We'll Confirm
+      </a>
+    </div>
+  </aside>
 
   <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
     <a href="#about"    class="mobile-link">About</a>
@@ -485,6 +554,10 @@
     <a href="#reviews"  class="mobile-link">Reviews</a>
     <a href="#faq"      class="mobile-link">FAQ</a>
     <a href="#contact"  class="mobile-link">Contact</a>
+    <button class="mobile-link" id="mobileLocBtn" style="background:none;border:none;text-align:left;cursor:pointer;width:100%;display:flex;align-items:center;gap:8px;padding:0;font-size:inherit;font-family:inherit;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Locations
+    </button>
   </div>
 
   <!-- ═══════════════════════════════════════════════
@@ -1678,5 +1751,310 @@
     })();
   </script>
 
+  <!-- ═══════════════════════════════════════════════
+       LOCATION PANEL — CSS
+  ═══════════════════════════════════════════════ -->
+  <style>
+    /* ── Navbar Locations Button ── */
+    .locations-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(240,176,79,.18), rgba(233,125,17,.15));
+      border: 1px solid rgba(240,176,79,.4);
+      color: var(--gold-light, #f0b04f);
+      font-size: .68rem;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .25s, border-color .25s, transform .2s;
+      white-space: nowrap;
+    }
+    .locations-btn:hover,
+    .locations-btn[aria-expanded="true"] {
+      background: linear-gradient(135deg, rgba(240,176,79,.32), rgba(233,125,17,.28));
+      border-color: rgba(240,176,79,.7);
+      transform: translateY(-1px);
+    }
+
+    /* ── Overlay ── */
+    .location-panel-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.52);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .38s ease;
+    }
+    .location-panel-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── Panel ── */
+    .location-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 92vw);
+      height: 100dvh;
+      background: #1a0f07;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform .42s cubic-bezier(.16,1,.3,1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: -12px 0 60px rgba(0,0,0,.5);
+    }
+    .location-panel.open {
+      transform: translateX(0);
+    }
+
+    /* ── Panel Header ── */
+    .lp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 28px 28px 0;
+      flex-shrink: 0;
+    }
+    .lp-eyebrow {
+      font-size: .6rem;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: rgba(240,176,79,.6);
+      margin: 0 0 6px;
+    }
+    .lp-title {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      line-height: 1.1;
+    }
+    .lp-close {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.7);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background .2s, color .2s;
+      margin-top: 4px;
+    }
+    .lp-close:hover { background: rgba(255,255,255,.16); color: white; }
+
+    /* ── Intro ── */
+    .lp-intro {
+      font-size: .82rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.7;
+      padding: 14px 28px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    /* ── Cities List ── */
+    .lp-cities {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(240,176,79,.3) transparent;
+    }
+    .lp-cities::-webkit-scrollbar { width: 4px; }
+    .lp-cities::-webkit-scrollbar-thumb { background: rgba(240,176,79,.3); border-radius: 4px; }
+
+    /* ── City Card ── */
+    .lp-city-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px;
+      text-decoration: none;
+      transition: background .25s, border-color .25s, transform .25s;
+      cursor: pointer;
+    }
+    .lp-city-card:hover {
+      background: rgba(240,176,79,.1);
+      border-color: rgba(240,176,79,.35);
+      transform: translateX(-4px);
+    }
+    .lp-city-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,.07);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lp-city-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .lp-city-name {
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: white;
+      line-height: 1;
+    }
+    .lp-city-meta {
+      font-size: .68rem;
+      color: rgba(240,176,79,.75);
+      letter-spacing: .04em;
+    }
+    .lp-city-tags {
+      font-size: .62rem;
+      color: rgba(255,255,255,.38);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: 4px;
+    }
+    .lp-arrow {
+      color: rgba(255,255,255,.25);
+      flex-shrink: 0;
+      transition: color .25s, transform .25s;
+    }
+    .lp-city-card:hover .lp-arrow {
+      color: rgba(240,176,79,.8);
+      transform: translateX(3px);
+    }
+
+    /* ── Panel Footer ── */
+    .lp-footer {
+      padding: 20px 28px 28px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .lp-footer-text {
+      font-size: .8rem;
+      color: rgba(255,255,255,.45);
+      margin: 0;
+    }
+    .lp-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: linear-gradient(135deg, #f0b04f, #e97d11);
+      color: #2a1705;
+      font-size: .65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 4px 18px rgba(233,125,17,.35);
+    }
+    .lp-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(233,125,17,.5); }
+  </style>
+
+  <!-- ═══════════════════════════════════════════════
+       LOCATION PANEL — JS
+  ═══════════════════════════════════════════════ -->
+  <script>
+    (function() {
+      var btn      = document.getElementById('locationsBtn');
+      var mobileBtn= document.getElementById('mobileLocBtn');
+      var panel    = document.getElementById('locationPanel');
+      var overlay  = document.getElementById('locOverlay');
+      var closeBtn = document.getElementById('lpClose');
+
+      function openPanel() {
+        panel.classList.add('open');
+        overlay.classList.add('active');
+        panel.removeAttribute('aria-hidden');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function(){ closeBtn.focus(); }, 420);
+      }
+
+      function closePanel() {
+        panel.classList.remove('open');
+        overlay.classList.remove('active');
+        panel.setAttribute('aria-hidden', 'true');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        if (btn) btn.focus();
+      }
+
+      if (btn)       btn.addEventListener('click', openPanel);
+      if (mobileBtn) mobileBtn.addEventListener('click', function() {
+        // close mobile nav first
+        var mobileNav = document.getElementById('mobileNav');
+        var menuToggle = document.getElementById('menuToggle');
+        if (mobileNav)  mobileNav.classList.remove('active');
+        if (menuToggle) menuToggle.classList.remove('active');
+        openPanel();
+      });
+      if (closeBtn)  closeBtn.addEventListener('click', closePanel);
+      if (overlay)   overlay.addEventListener('click', closePanel);
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && panel.classList.contains('open')) closePanel();
+      });
+
+      // Trap focus inside panel when open
+      panel.addEventListener('keydown', function(e) {
+        if (e.key !== 'Tab') return;
+        var focusable = panel.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        var first = focusable[0];
+        var last  = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+        }
+      });
+    })();
+  </script>
+
 </body>
 </html>
+
+
+
+ <!-- Copy karo yeh block aur sirf yeh 4 cheezein badlo: 
+<a href="bulk-flower-supplier-CITYNAME.html" class="lp-city-card">
+  <div class="lp-city-icon">🌺</div>   emoji badlo 
+  <div class="lp-city-info">
+    <span class="lp-city-name">City Name</span>
+    <span class="lp-city-meta">~XXX km · X–X hrs</span>
+    <span class="lp-city-tags">Zendu · Rose · Shevanti</span>
+  </div>
+  ...
+</a>  -->
