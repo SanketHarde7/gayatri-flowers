@@ -402,6 +402,35 @@ nav a:hover { color: var(--gold); }
   transform: translateX(-4px);
 }
 
+.lp-city-card.is-current {
+  background: linear-gradient(135deg, rgba(240,176,79,.22), rgba(233,125,17,.12));
+  border-color: rgba(240,176,79,.72);
+  box-shadow: inset 0 0 0 1px rgba(252,214,138,.28), 0 12px 28px rgba(233,125,17,.16);
+  transform: none;
+}
+
+.lp-city-card.is-current:hover {
+  background: linear-gradient(135deg, rgba(240,176,79,.26), rgba(233,125,17,.16));
+  border-color: rgba(240,176,79,.85);
+  transform: none;
+}
+
+.lp-city-card.is-current .lp-city-icon {
+  background: rgba(240,176,79,.16);
+}
+
+.lp-city-card.is-current .lp-city-name {
+  color: var(--gold-light);
+}
+
+.lp-city-card.is-current .lp-city-meta {
+  color: rgba(252,214,138,.95);
+}
+
+.lp-city-card.is-current .lp-arrow {
+  color: rgba(252,214,138,.9);
+}
+
 .lp-city-icon {
   font-size: 2rem;
   flex-shrink: 0;
