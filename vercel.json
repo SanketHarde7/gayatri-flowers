@@ -1,3 +1,35 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/bulk-flower-supplier-pune",
+      "destination": "/pune",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-flower-supplier-pune.html",
+      "destination": "/pune",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-flower-supplier-nashik",
+      "destination": "/nashik",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-flower-supplier-nashik.html",
+      "destination": "/nashik",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-flower-supplier-ahilyanagar",
+      "destination": "/ahilyanagar",
+      "permanent": true
+    },
+    {
+      "source": "/bulk-flower-supplier-ahilyanagar.html",
+      "destination": "/ahilyanagar",
+      "permanent": true
+    }
+  ]
 }
