@@ -174,22 +174,47 @@ nav a:hover { color: var(--gold); }
 .menu-toggle {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(240, 176, 79, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s, border-color 0.3s, transform 0.2s;
+  z-index: 101;
+}
+
+.menu-toggle:hover {
+  border-color: var(--gold);
+  background: rgba(240, 176, 79, 0.1);
+  transform: scale(1.05);
 }
 
 .menu-toggle span {
-  width: 22px;
-  height: 1.5px;
-  background: white;
+  width: 18px;
+  height: 2px;
+  background: var(--gold-light);
   display: block;
-  transition: 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
   transform-origin: center;
 }
 
-.menu-toggle.open span:first-child { transform: translateY(6.5px) rotate(45deg); }
-.menu-toggle.open span:last-child  { transform: translateY(-6.5px) rotate(-45deg); }
+.menu-toggle.open {
+  border-color: var(--orange);
+  background: rgba(233, 125, 17, 0.15);
+}
+
+.menu-toggle.open span {
+  background: var(--orange);
+}
+
+.menu-toggle.open span:first-child { transform: translateY(3.5px) rotate(45deg); }
+.menu-toggle.open span:last-child  { transform: translateY(-3.5px) rotate(-45deg); }
 
 /* ===== BRAND IMAGE (square, rounded, contain full logo) ===== */
 .brand {
