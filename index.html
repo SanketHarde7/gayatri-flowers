@@ -2020,8 +2020,8 @@
         // close mobile nav first
         var mobileNav = document.getElementById('mobileNav');
         var menuToggle = document.getElementById('menuToggle');
-        if (mobileNav)  mobileNav.classList.remove('active');
-        if (menuToggle) menuToggle.classList.remove('active');
+        if (mobileNav)  mobileNav.classList.remove('open');
+        if (menuToggle) menuToggle.classList.remove('open');
         openPanel();
       });
       if (closeBtn)  closeBtn.addEventListener('click', closePanel);
