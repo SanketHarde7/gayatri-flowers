@@ -222,13 +222,25 @@ const CALL_NUMBER = '+919325284221';
     toggle.classList.toggle('open', isOpen);
     mobileNav.classList.toggle('open', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('lock-scroll', isOpen);
   }
 
-  toggle.addEventListener('click', () => setOpen(!isOpen));
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!isOpen);
+  });
+
   mobileNav.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => setOpen(false));
   });
+
+  // Close on clicking outside
+  document.addEventListener('click', (e) => {
+    if (isOpen && !mobileNav.contains(e.target) && !toggle.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && isOpen) setOpen(false);
   });

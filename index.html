@@ -2002,7 +2002,7 @@
         overlay.classList.add('active');
         panel.removeAttribute('aria-hidden');
         if (btn) btn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('lock-scroll');
         setTimeout(function(){ closeBtn.focus(); }, 420);
       }
 
@@ -2011,7 +2011,7 @@
         overlay.classList.remove('active');
         panel.setAttribute('aria-hidden', 'true');
         if (btn) btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        document.body.classList.remove('lock-scroll');
         if (btn) btn.focus();
       }
 

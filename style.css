@@ -42,6 +42,11 @@ body {
   overflow-x: hidden;
 }
 
+body.lock-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 h1, h2, h3 {
   text-wrap: balance;
   font-kerning: normal;

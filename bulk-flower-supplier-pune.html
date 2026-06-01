@@ -363,6 +363,7 @@
   </aside>
 
   <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-link">Home</a>
     <a href="index.html#about" class="mobile-link">About</a>
     <a href="index.html#flowers" class="mobile-link">Flowers</a>
     <a href="index.html#services" class="mobile-link">Services</a>
@@ -749,7 +750,7 @@
         overlay.classList.add('active');
         panel.removeAttribute('aria-hidden');
         if (btn) btn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('lock-scroll');
         setTimeout(function(){ closeBtn.focus(); }, 420);
       }
 
@@ -758,7 +759,7 @@
         overlay.classList.remove('active');
         panel.setAttribute('aria-hidden', 'true');
         if (btn) btn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        document.body.classList.remove('lock-scroll');
         if (btn) btn.focus();
       }
 
