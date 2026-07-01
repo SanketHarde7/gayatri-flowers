@@ -23,7 +23,7 @@ const FLOWER_DATA = {
     desc: "Maharashtra's most-demanded festival flower. Harvested before sunrise for maximum vase life. Supplied fresh to temples, mandaps, and Blinkit daily.",
     varieties: ['Deep Orange', 'Butter Yellow', 'Mixed Garland Grade', 'Loose Bulk'],
     bestFor: ['Mandap Decoration', 'Temple Supply', 'Blinkit', 'Garland Making', 'Festival Events'],
-    whatsappMsg: 'Hello, I want to enquire about Zendu Marigold (bulk availability and order details).'
+    whatsappMsg: 'Hello, I want to enquire about Marigold (झेंडू) (bulk availability and order details).'
   },
   rose: {
     name: 'Premium Rose',
@@ -38,7 +38,7 @@ const FLOWER_DATA = {
     desc: 'Dense-petalled roses with natural fragrance, grown without aggressive pesticides. Popular with wedding planners and mandap decorators across Maharashtra.',
     varieties: ['Deep Red', 'Blush Pink', 'Cream White', 'Mixed Grade'],
     bestFor: ['Wedding Decoration', 'Garland Making', 'Premium Decor', 'Puja'],
-    whatsappMsg: 'Hello, I want to enquire about Premium Gulab Rose (bulk availability and order details).'
+    whatsappMsg: 'Hello, I want to enquire about Rose (गुलाब) (bulk availability and order details).'
   },
   shevanti: {
     name: 'Chrysanthemum',
@@ -53,7 +53,7 @@ const FLOWER_DATA = {
     desc: 'White and yellow chrysanthemum with long-lasting freshness. A festival staple during Diwali and Navratri. Available in bulk for decoration and garlands.',
     varieties: ['Pure White', 'Bright Yellow', 'Mixed Grade'],
     bestFor: ['Diwali Decoration', 'Navratri Garlands', 'Mandap', 'Religious Ceremonies'],
-    whatsappMsg: 'Hello, I want to enquire about Shevanti Chrysanthemum (seasonal availability and order details).'
+    whatsappMsg: 'Hello, I want to enquire about Chrysanthemum (शेवंती) (seasonal availability and order details).'
   },
   mogra: {
     name: 'Arabian Jasmine',
@@ -68,7 +68,7 @@ const FLOWER_DATA = {
     desc: 'Premium jasmine known for its intense fragrance. Used in garlands, hair flowers, and religious offerings. High demand during summer and wedding season.',
     varieties: ['Double Petal', 'Single Petal', 'Garland Grade'],
     bestFor: ['Bridal Garlands', 'Hair Flowers', 'Pooja', 'Attar Production'],
-    whatsappMsg: 'Hello, I want to enquire about Mogra Jasmine (today\'s availability and order details).'
+    whatsappMsg: 'Hello, I want to enquire about Jasmine (मोगरा) (today\'s availability and order details).'
   },
   gaillardia: {
     name: ' Blanket flower',
@@ -112,7 +112,7 @@ const CALL_NUMBER = '+919325284221';
 (function initCursor() {
   if (prefersReducedMotion || 'ontouchstart' in window) return;
 
-  const cursor   = document.getElementById('cursor');
+  const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursorFollower');
   if (!cursor || !follower) return;
 
@@ -123,14 +123,14 @@ const CALL_NUMBER = '+919325284221';
     mouseX = e.clientX;
     mouseY = e.clientY;
     cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
+    cursor.style.top = mouseY + 'px';
   });
 
   function lerpFollower() {
     followerX += (mouseX - followerX) * 0.10;
     followerY += (mouseY - followerY) * 0.10;
     follower.style.left = followerX + 'px';
-    follower.style.top  = followerY + 'px';
+    follower.style.top = followerY + 'px';
     requestAnimationFrame(lerpFollower);
   }
   lerpFollower();
@@ -139,25 +139,25 @@ const CALL_NUMBER = '+919325284221';
 
   document.addEventListener('mouseover', e => {
     if (e.target.closest(growTargets)) {
-      follower.style.width   = '60px';
-      follower.style.height  = '60px';
+      follower.style.width = '60px';
+      follower.style.height = '60px';
       follower.style.opacity = '0.5';
     }
   });
   document.addEventListener('mouseout', e => {
     if (e.target.closest(growTargets)) {
-      follower.style.width   = '36px';
-      follower.style.height  = '36px';
+      follower.style.width = '36px';
+      follower.style.height = '36px';
       follower.style.opacity = '1';
     }
   });
 
   document.documentElement.addEventListener('mouseleave', () => {
-    cursor.style.opacity   = '0';
+    cursor.style.opacity = '0';
     follower.style.opacity = '0';
   });
   document.documentElement.addEventListener('mouseenter', () => {
-    cursor.style.opacity   = '1';
+    cursor.style.opacity = '1';
     follower.style.opacity = '1';
   });
 })();
@@ -167,20 +167,20 @@ const CALL_NUMBER = '+919325284221';
    2. NAVBAR
    ─────────────────────────────────────────────*/
 (function initNavbar() {
-  const navbar  = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar');
   if (!navbar) return;
 
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
   const sections = [];
 
   navLinks.forEach(link => {
-    const id  = link.getAttribute('href').slice(1);
+    const id = link.getAttribute('href').slice(1);
     const sec = document.getElementById(id);
     if (sec) sections.push({ link, sec });
   });
 
   let lastScrollY = window.scrollY;
-  let ticking     = false;
+  let ticking = false;
 
   function update() {
     navbar.classList.toggle('scrolled', lastScrollY > 60);
@@ -211,7 +211,7 @@ const CALL_NUMBER = '+919325284221';
    3. MOBILE NAV
    ─────────────────────────────────────────────*/
 (function initMobileNav() {
-  const toggle    = document.getElementById('menuToggle');
+  const toggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
   if (!toggle || !mobileNav) return;
 
@@ -307,8 +307,8 @@ const CALL_NUMBER = '+919325284221';
   document.querySelectorAll('.primary-btn, .secondary-btn, .secondary-btn-outline').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width  / 2) * 0.05;
-      const y = (e.clientY - rect.top  - rect.height / 2) * 0.05;
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.05;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.05;
       btn.style.transform = `translate(${x}px, ${y}px) translateY(-3px)`;
     });
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
@@ -328,10 +328,10 @@ const CALL_NUMBER = '+919325284221';
   }
 
   function animateCounter(el) {
-    const target   = parseInt(el.dataset.count, 10);
-    const numEl    = el.querySelector('.count-number');
+    const target = parseInt(el.dataset.count, 10);
+    const numEl = el.querySelector('.count-number');
     const duration = prefersReducedMotion ? 0 : 1800;
-    const start    = performance.now();
+    const start = performance.now();
 
     if (!numEl) return;
 
@@ -343,7 +343,7 @@ const CALL_NUMBER = '+919325284221';
 
     function step(now) {
       const progress = Math.min((now - start) / duration, 1);
-      const current  = Math.round(easeOutExpo(progress) * target);
+      const current = Math.round(easeOutExpo(progress) * target);
       numEl.textContent = current >= 1000
         ? current.toLocaleString('en-IN')
         : current;
@@ -414,11 +414,11 @@ const CALL_NUMBER = '+919325284221';
   document.head.appendChild(style);
   document.body.appendChild(overlay);
 
-  const lbImg     = overlay.querySelector('.lb-img');
+  const lbImg = overlay.querySelector('.lb-img');
   const lbCaption = overlay.querySelector('.lb-caption');
-  const lbClose   = overlay.querySelector('.lb-close');
-  const lbPrev    = overlay.querySelector('.lb-prev');
-  const lbNext    = overlay.querySelector('.lb-next');
+  const lbClose = overlay.querySelector('.lb-close');
+  const lbPrev = overlay.querySelector('.lb-prev');
+  const lbNext = overlay.querySelector('.lb-next');
 
   const images = [];
   galleryItems.forEach(item => {
@@ -430,8 +430,8 @@ const CALL_NUMBER = '+919325284221';
 
   function openLightbox(index) {
     currentIndex = (index + images.length) % images.length;
-    lbImg.src    = images[currentIndex].src;
-    lbImg.alt    = images[currentIndex].alt;
+    lbImg.src = images[currentIndex].src;
+    lbImg.alt = images[currentIndex].alt;
     lbCaption.textContent = images[currentIndex].alt;
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -447,8 +447,8 @@ const CALL_NUMBER = '+919325284221';
     lbImg.style.cssText = 'opacity:0;transform:translateX(' + (dir > 0 ? '30px' : '-30px') + ');transition:opacity .2s,transform .2s';
     setTimeout(() => {
       currentIndex = (currentIndex + dir + images.length) % images.length;
-      lbImg.src    = images[currentIndex].src;
-      lbImg.alt    = images[currentIndex].alt;
+      lbImg.src = images[currentIndex].src;
+      lbImg.alt = images[currentIndex].alt;
       lbCaption.textContent = images[currentIndex].alt;
       lbImg.style.transform = 'translateX(' + (dir > 0 ? '-30px' : '30px') + ')';
       requestAnimationFrame(() => {
@@ -474,14 +474,14 @@ const CALL_NUMBER = '+919325284221';
 
   document.addEventListener('keydown', e => {
     if (!overlay.classList.contains('open')) return;
-    if (e.key === 'Escape')     closeLightbox();
-    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
     if (e.key === 'ArrowRight') navigate(+1);
   });
 
   let touchStartX = 0;
   overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  overlay.addEventListener('touchend',   e => {
+  overlay.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
   });
@@ -492,9 +492,9 @@ const CALL_NUMBER = '+919325284221';
    9. FLOWER MODAL
    ─────────────────────────────────────────────*/
 (function initFlowerModal() {
-  const modal     = document.getElementById('flowerModal');
-  const closeBtn  = document.getElementById('fm-close');
-  const backdrop  = modal ? modal.querySelector('.fm-backdrop') : null;
+  const modal = document.getElementById('flowerModal');
+  const closeBtn = document.getElementById('fm-close');
+  const backdrop = modal ? modal.querySelector('.fm-backdrop') : null;
   if (!modal) return;
 
   // Helpers
@@ -510,18 +510,18 @@ const CALL_NUMBER = '+919325284221';
     img.alt = d.name + ' — Gayatri Flowers Shirdi';
 
     // Text fields
-    el('fm-tag').textContent      = d.tag;
-    el('fm-name').textContent     = d.name;
-    el('fm-name-hi').textContent  = d.nameHi;
-    el('fm-desc').textContent     = d.desc;
-    el('fm-min').textContent      = d.minOrder;
-    el('fm-season').textContent   = d.season;
+    el('fm-tag').textContent = d.tag;
+    el('fm-name').textContent = d.name;
+    el('fm-name-hi').textContent = d.nameHi;
+    el('fm-desc').textContent = d.desc;
+    el('fm-min').textContent = d.minOrder;
+    el('fm-season').textContent = d.season;
     el('fm-freshness').textContent = d.freshness;
 
     // Availability badge
     const availEl = el('fm-avail');
     availEl.textContent = d.availability;
-    availEl.className   = 'fm-avail ' + d.availClass;
+    availEl.className = 'fm-avail ' + d.availClass;
 
     // Varieties pills
     const varWrap = el('fm-varieties');
@@ -592,7 +592,7 @@ const CALL_NUMBER = '+919325284221';
       'button:not([disabled]), a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
     );
     const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
+    const last = focusable[focusable.length - 1];
     if (e.shiftKey) {
       if (document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
@@ -614,7 +614,7 @@ const CALL_NUMBER = '+919325284221';
       if (!target) return;
       e.preventDefault();
       const navH = document.querySelector('.navbar')?.offsetHeight || 70;
-      const top  = target.getBoundingClientRect().top + window.scrollY - navH;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH;
       window.scrollTo({ top, behavior: prefersReducedMotion ? 'instant' : 'smooth' });
     });
   });
@@ -664,8 +664,8 @@ const CALL_NUMBER = '+919325284221';
    ─────────────────────────────────────────────*/
 (function initReviewsCarousel() {
   const carousel = document.getElementById('reviewsCarousel');
-  const prevBtn  = document.getElementById('revPrev');
-  const nextBtn  = document.getElementById('revNext');
+  const prevBtn = document.getElementById('revPrev');
+  const nextBtn = document.getElementById('revNext');
   if (!carousel || !prevBtn || !nextBtn) return;
 
   // Calculate scroll distance = one card width + gap
