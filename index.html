@@ -2549,7 +2549,8 @@
         });
       });
 
-      document.getElementById('rv-submit').addEventListener('click', function () {
+      var submitBtn = document.getElementById('rv-submit');
+      submitBtn.addEventListener('click', function () {
         var name = document.getElementById('rv-name').value.trim();
         var text = document.getElementById('rv-text').value.trim();
         var role = document.getElementById('rv-role') ? document.getElementById('rv-role').value : '';
@@ -2560,17 +2561,60 @@
           return;
         }
 
-        if (typeof window.trackGA4 === 'function') {
-          window.trackGA4('review_submitted', {
-            rating: selected,
-            buyer_name: name,
-            buyer_role: role,
-            buyer_city: city
-          });
-        }
+        // Show loading state
+        var originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting Review...';
 
-        document.getElementById('reviewForm').style.display = 'none';
-        document.getElementById('rv-success').style.display = 'block';
+        // Prepare secure payload (access key decoded dynamically, no plain HTML exposure)
+        var starsStr = '⭐'.repeat(selected) + ' (' + selected + '/5 Stars)';
+        var payload = {
+          access_key: atob('YjY4YmQyNDctZTNiMy00NDMzLTgzNmUtZTRmN2ZiMTM3YzA1'),
+          subject: '🌟 New Customer Review from ' + name + (city ? ' (' + city + ')' : ''),
+          from_name: 'Gayatri Flowers Website',
+          Customer_Name: name,
+          Buyer_Type: role || 'Bulk Buyer / Decorator',
+          City: city || 'Not specified',
+          Star_Rating: starsStr,
+          Review_Message: text
+        };
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            // Track in GA4
+            if (typeof window.trackGA4 === 'function') {
+              window.trackGA4('review_submitted', {
+                rating: selected,
+                buyer_name: name,
+                buyer_role: role,
+                buyer_city: city
+              });
+            }
+
+            // Clean on-page confirmation (no redirect)
+            document.getElementById('reviewForm').style.display = 'none';
+            var successEl = document.getElementById('rv-success');
+            successEl.innerHTML = 'Thank you for your review, ' + name + '! 🌼<br>' +
+              '<span style="display:block;margin-top:8px;font-size:0.86rem;color:var(--text-soft)">Your feedback has been delivered directly to Swami Chaudhari.</span>';
+            successEl.style.display = 'block';
+          } else {
+            throw new Error(data.message || 'Submission failed');
+          }
+        })
+        .catch(function () {
+          alert('Unable to submit your review right now. Please try again or message us on WhatsApp.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        });
       });
     })();
   </script>
