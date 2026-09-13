@@ -5,6 +5,22 @@
 
 'use strict';
 
+/* ─── GA4 TRACKING HELPER ─── */
+function trackGA4(eventName, params = {}) {
+  try {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName, {
+        page_location: window.location.href,
+        page_title: document.title,
+        ...params
+      });
+    }
+  } catch (err) {
+    console.debug('GA4 event error:', err);
+  }
+}
+window.trackGA4 = trackGA4;
+
 /* ─── REDUCED MOTION ─── */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -548,6 +564,15 @@ const CALL_NUMBER = '+919325284221';
     populateModal(key);
     modal.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
+
+    // Track flower view in GA4
+    const d = FLOWER_DATA[key];
+    trackGA4('view_flower_details', {
+      flower_key: key,
+      flower_name: d ? d.name : key,
+      availability: d ? d.availability : ''
+    });
+
     // Tiny delay so transition fires after display
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
@@ -695,3 +720,71 @@ const CALL_NUMBER = '+919325284221';
   // Set initial state
   updateArrowStates();
 })();
+
+
+/* ─────────────────────────────────────────────
+   15. GLOBAL CONVERSION CLICK TRACKING (GA4)
+   ─────────────────────────────────────────────*/
+(function initConversionTracking() {
+  document.addEventListener('click', function (e) {
+    // 1. WHATSAPP CLICKS
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink) {
+      let source = 'inline_link';
+      if (waLink.classList.contains('wa-float') || waLink.closest('.wa-float')) {
+        source = 'floating_button';
+      } else if (waLink.id === 'fm-wa' || waLink.closest('#fm-wa')) {
+        source = 'flower_modal';
+      } else if (waLink.classList.contains('lp-wa-btn') || waLink.closest('.lp-wa-btn')) {
+        source = 'location_panel';
+      } else if (waLink.closest('.hero')) {
+        source = 'hero_section';
+      } else if (waLink.closest('.contact')) {
+        source = 'contact_section';
+      } else if (waLink.closest('.flowers-cta')) {
+        source = 'flowers_cta';
+      } else if (waLink.closest('.lp-footer')) {
+        source = 'location_panel_footer';
+      }
+
+      trackGA4('whatsapp_click', {
+        conversion_type: 'whatsapp_lead',
+        source: source,
+        button_text: (waLink.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60),
+        destination: waLink.href
+      });
+    }
+
+    // 2. PHONE CALL CLICKS
+    const telLink = e.target.closest('a[href^="tel:"]');
+    if (telLink) {
+      const source = (telLink.id === 'fm-call' || telLink.closest('#fm-call'))
+        ? 'flower_modal_call'
+        : 'direct_call_link';
+
+      trackGA4('phone_call_click', {
+        conversion_type: 'phone_call_lead',
+        source: source,
+        phone_number: telLink.getAttribute('href').replace('tel:', '')
+      });
+    }
+
+    // 3. LOCATION SELECTION
+    const cityCard = e.target.closest('.lp-city-card');
+    if (cityCard) {
+      const cityName = (cityCard.querySelector('.lp-city-name')?.textContent || '').trim();
+      trackGA4('select_city_page', {
+        city: cityName,
+        destination_url: cityCard.getAttribute('href')
+      });
+    }
+
+    // 4. LOCATIONS PANEL OPEN BUTTON
+    const locBtn = e.target.closest('#locationsBtn, #mobileLocBtn, .locations-btn');
+    if (locBtn) {
+      trackGA4('open_locations_menu', {
+        trigger: locBtn.id || 'navbar_locations_btn'
+      });
+    }
+  }, { passive: true });
+})();

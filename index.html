@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQKNYNH786"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BQKNYNH786');
+  </script>
+
   <meta name="google-site-verification" content="JE3dsGk1FQDg5oPc0O2wQTQNhy29ziyK3sGVmU1INNA" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -2542,10 +2552,23 @@
       document.getElementById('rv-submit').addEventListener('click', function () {
         var name = document.getElementById('rv-name').value.trim();
         var text = document.getElementById('rv-text').value.trim();
+        var role = document.getElementById('rv-role') ? document.getElementById('rv-role').value : '';
+        var city = document.getElementById('rv-city') ? document.getElementById('rv-city').value.trim() : '';
+
         if (!name || !text || !selected) {
           alert('Please fill in your name, review text, and select a star rating.');
           return;
         }
+
+        if (typeof window.trackGA4 === 'function') {
+          window.trackGA4('review_submitted', {
+            rating: selected,
+            buyer_name: name,
+            buyer_role: role,
+            buyer_city: city
+          });
+        }
+
         document.getElementById('reviewForm').style.display = 'none';
         document.getElementById('rv-success').style.display = 'block';
       });
